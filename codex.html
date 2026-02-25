@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador de Convites</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 15px;
+      width: 100%;
+      background: #2c7be5;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    textarea {
+      height: 300px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Gerador de Convites HTML</h1>
+
+<form id="form">
+  <label>Tema</label>
+  <input id="tema">
+
+  <label>Nome</label>
+  <input id="nome">
+
+  <label>Idade</label>
+  <input id="idade">
+
+  <label>Data</label>
+  <input id="data">
+
+  <label>Local</label>
+  <input id="local">
+
+  <label>Link da imagem</label>
+  <input id="imagem">
+
+  <button type="submit">Gerar HTML</button>
+</form>
+
+<textarea id="resultado" placeholder="O código HTML aparecerá aqui"></textarea>
+
+<script>
+document.getElementById("form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const tema = tema.value;
+  const nome = nome.value;
+  const idade = idade.value;
+  const data = data.value;
+  const local = local.value;
+  const imagem = imagem.value;
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Convite ${tema}</title>
+  <style>
+    body { text-align: center; font-family: Arial; background: #f0f0f0; }
+    img { max-width: 90%; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>${tema}</h1>
+  <h2>${nome} faz ${idade} anos!</h2>
+  <p>📅 ${data}</p>
+  <p📍>${local}</p>
+  <img src="${imagem}">
+</body>
+</html>
+  `;
+
+  document.getElementById("resultado").value = html;
+});
+</script>
+
+</body>
+</html>
